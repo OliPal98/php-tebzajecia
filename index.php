@@ -7,7 +7,7 @@ namespace App;
 include_once('./SRC/view.php');
 include_once('./SRC/utils/debug.php');
 
-+ $action = $_GET['action'] ?? null;
+$action = $_GET['action'] ?? null;
 
 
 $view = new view();

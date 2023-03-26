@@ -6,11 +6,7 @@ namespace App;
 
 include_once('./SRC/utils/debug.php');
 
-if (!empty($_GET['action'])) {
-    $action = $_GET['action']; // $action = 'create'
-} else {
-    $action = null;
-}
++ $action = $_GET['action'] ?? null;
 
 ?>
 <!DOCTYPE html>
@@ -41,6 +37,7 @@ if (!empty($_GET['action'])) {
                 <h3>Nowa notatka</h3>
             <?php else : ?>
                 <h3>Lista notatek</h3>
+                <?php echo htmlentities($action ?? '') ?>
             <?php endif; ?>
         </article>
     </main>    

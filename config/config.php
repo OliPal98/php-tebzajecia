@@ -4,4 +4,4 @@ $configuration = [
     'database'=>'notes',
     'user'=>'root',
     'password'=>'123123',
-]
+];

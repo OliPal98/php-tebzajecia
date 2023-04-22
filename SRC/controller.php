@@ -45,7 +45,7 @@ class controller
                         'title' => $this->postData['title'],
                         'description' => $this->postData['description'],
                     ];
-                    header('Location: /');
+                    //header('Location: /');
                     $created = true;
                     $this->database->createNote($viewParams);
                 }

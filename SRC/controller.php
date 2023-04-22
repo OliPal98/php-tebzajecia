@@ -20,7 +20,7 @@ class controller
     {
         $this->getData = $getData;
         $this->postData = $postData;
-        $db = new Database(self::$configuration);
+        $this->database = new Database(self::$configuration);
     }
 
     public static function initConfiguration(array $configuration):void
@@ -36,15 +36,18 @@ class controller
         $viewParams = [];
 
         switch ($action){
+            
             case 'create':
                 $page = 'create';
                 $created = false;
-                if(!empty($_POST)){
+                if(!empty($this->postData)){
                     $viewParams = [
-                        'title' => $_POST['title'],
-                        'description' => $_POST['description'],
+                        'title' => $this->postData['title'],
+                        'description' => $this->postData['description'],
                     ];
+                    header('Location: /');
                     $created = true;
+                    $this->database->createNote($viewParams);
                 }
                 $viewParams['created'] = $created;
                 break;

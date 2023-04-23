@@ -8,18 +8,17 @@ require_once('./Exception/AppException.php');
 require_once('./Exception/ConfigurationException.php');
 require_once('./Exception/StorageException.php');
 include_once('./SRC/controller.php');
+include_once('./src/Request.php');
 include_once('./SRC/utils/debug.php');
 require_once('./config/config.php');
 
 use App\Exception\AppException;
 use App\Exception\ConfigurationException;
 use App\Exception\StorageException;
+use App\Exception\NotFoundException;
 use Throwable;
 
-$request = [
-    'get' => $_GET,
-    'post' => $_POST,
-];
+$request = new Request($_GET, $_POST);
 
 try {
 Controller::initConfiguration($configuration);

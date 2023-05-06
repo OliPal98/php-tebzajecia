@@ -27,10 +27,10 @@ $controller->run();
 } catch (AppException $e) {
     echo "<h1>Wystąpił błąd w aplikacji</h1>";
     echo '<h3>' . $e->getMessage() . '</h3>';
-    dump($e);
+    //dump($e);
 } catch (Throwable $e){
     echo "<h1> Wystąpił błąd w aplikacji</h1>";
-    dump($e);
+    //dump($e);
 }
 
 ?>

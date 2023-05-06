@@ -18,7 +18,7 @@ abstract class AbstractController
     protected Database $database;
     protected View $view;
 
-    public function ___construct(Request $request)
+    public function __construct(Request $request)
     {
         $this->request = $request;
         $this->view = new View();

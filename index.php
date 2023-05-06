@@ -7,9 +7,9 @@ namespace App;
 require_once('./Exception/AppException.php');
 require_once('./Exception/ConfigurationException.php');
 require_once('./Exception/StorageException.php');
-include_once('./SRC/controller.php');
+include_once('./src/NoteController.php');
 include_once('./src/Request.php');
-include_once('./SRC/utils/debug.php');
+include_once('./src/utils/debug.php');
 require_once('./config/config.php');
 
 use App\Exception\AppException;
@@ -21,8 +21,8 @@ use Throwable;
 $request = new Request($_GET, $_POST);
 
 try {
-Controller::initConfiguration($configuration);
-$controller = new controller($request);
+AbstractController::initConfiguration($configuration);
+$controller = new NoteController($request);
 $controller->run();
 } catch (AppException $e) {
     echo "<h1>Wystąpił błąd w aplikacji</h1>";

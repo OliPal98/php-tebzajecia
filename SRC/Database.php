@@ -84,6 +84,16 @@ public function editNote(int $id, array $data)
     }
 }
 
+public function deleteNote(int $id): void
+{
+    try {
+        $query = "DELETE FROM notes WHERE id = $id LIMIT 1";
+        $this->conn->exec($query);
+    } catch (Throwable $e) {
+        throw new StorageException('Nie udało się usunąć notatki, 400, $e');
+    }
+}
+
 private function createConnection(array $config): void
 {
     $dsn = "mysql:dbname={$config['database']};host={$config['host']}";

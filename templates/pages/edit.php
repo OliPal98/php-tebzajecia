@@ -5,7 +5,7 @@
         $note = $params['note'];
         dump($params); ?>
         <form action="/?action=edit" class="note-form" method="post">
-            <input type="text" name="id" value="<?php echo $note['id']> ?>" />
+            <input type="text" name="id" value="<?php echo $note['id'] ?>" />
             <ul>
                 <li>
                     <label for="title">Tytuł<span class="required">*</span></label>
